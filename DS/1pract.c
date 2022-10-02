@@ -2,9 +2,10 @@
  
 int main(){
     int n,m;
+    printf("Enter row and column number of 2d array : ");
     scanf("%d %d",&n,&m);
     int sparseMatrix[n][m];
-
+    printf("Enter elements of sparse matrix\n");
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
                 scanf("%d",&sparseMatrix[i][j]);
@@ -29,7 +30,7 @@ int main(){
                 compactMatrix[2][k] = sparseMatrix[i][j];
                 k++;
             }
- 
+    printf("\n\nThe compact matrix of this sparse matrix is\n\n");
     for (int i=0; i<3; i++)
     {
         for (int j=0; j<size; j++)

@@ -43,8 +43,10 @@ return -1;
 
 void main(){
     int n,i,key;
+    printf("Enter the size of array : ");
     scanf("%d",&n);
     int arr[n];
+    printf("Enter elements of array\n");
     for(i=0;i<n;i++){
         scanf("%d",&arr[i]);
     }
