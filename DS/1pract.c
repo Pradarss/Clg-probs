@@ -1,42 +1,62 @@
-#include<stdio.h>
- 
-int main(){
-    int n,m;
-    printf("Enter row and column number of 2d array : ");
-    scanf("%d %d",&n,&m);
-    int sparseMatrix[n][m];
-    printf("Enter elements of sparse matrix\n");
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-                scanf("%d",&sparseMatrix[i][j]);
+#include <stdio.h>
+struct compmat{
+    int row;
+    int col;
+    int val;
+    
+};
+
+int main() {
+    struct compmat record[100];
+    int a ,b, i , j , count=0,k=0;
+    printf("Enter the number of rows\n");
+    scanf("%d",&a);
+    printf("Enter the number of columns\n");
+    scanf("%d",&b);
+    int sp[a][b];
+    printf("Enter the elements of the matrix\n");
+    for(i=0;i<a;i++){
+        for (j=0; j<b; j++) {
+            printf("Enter the %d %d element\n",i,j);
+            scanf("%d",&sp[i][j]);
         }
     }
- 
-    int size = 0;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            if (sparseMatrix[i][j] != 0)
-                size++;
-
-    int compactMatrix[3][size];
- 
-    int k = 0;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            if (sparseMatrix[i][j] != 0)
-            {
-                compactMatrix[0][k] = i;
-                compactMatrix[1][k] = j;
-                compactMatrix[2][k] = sparseMatrix[i][j];
-                k++;
-            }
-    printf("\n\nThe compact matrix of this sparse matrix is\n\n");
-    for (int i=0; i<3; i++)
-    {
-        for (int j=0; j<size; j++)
-            printf("%d ", compactMatrix[i][j]);
- 
-        printf("\n");
+    //Check if the matrix is sparse
+    for(i = 0; i < a; i++){
+        for(j = 0; j < b; j++){
+            // printf("%d",sp[i][j]);
+            if(sp[i][j] == 0)
+                count++;
+        }
     }
-return 0;
+    if(count > ((a * b)/2)){
+        printf("Matrix is a sparse matrix \n");
+        int size = 0;
+        for (int i = 0; i < a; i++){
+            for (int j = 0; j < b; j++){
+                if (sp[i][j] != 0){
+                    size++;
+                    // printf("%d",size);
+                }}}
+        for(i=0;i<a;i++){
+            for (j=0; j<b; j++) {
+                if(sp[i][j]!=0){
+                    record[k].row=i;
+                    record[k].col=j;
+                    record[k].val=sp[i][j];
+                    k++;
+                    // printf("%d\n",k);
+                }
+            }
+        }
+        for (i=0; i<k; i++) {
+                printf("\nThe %d element with row %d,column %d,value %d",i+1,record[i].row,record[i].col,record[i].val);
+        }
+    }
+    else{
+        printf("Matrix is not sparse matrix\n");}
+    
+   // printf("%d\n",k);
+    return 0;
+    
 }

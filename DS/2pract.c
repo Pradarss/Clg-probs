@@ -15,21 +15,24 @@ return -1;
 }
 
 int binsearch(int arr[],int n,int key){
-	int  counter, counter1, swap,s=0, e=n;
-    for (counter = 0 ; counter < n - 1; counter++){
-        for (counter1 = 0 ; counter1 < n - counter - 1; counter1++){
-            if (arr[counter1] > arr[counter1+1]){
-                swap = arr[counter1];
-                arr[counter1]   = arr[counter1+1];
-                arr[counter1+1] = swap;
-            }
-        }
-    }
+	int  counter=1, swap,s=0, e=n;
+	while(counter<n){
+		for(int i=0;i<n-counter;i++){
+			if(arr[i]>arr[i+1]){
+				int temp=arr[i];
+				arr[i]=arr[i+1];
+				arr[i+1]=temp;
+			}
+		}
+		counter++;
+	}
+
 	while(s<=e){
 		int mid=(s+e)/2;
 		
 		if(arr[mid]==key){
 			printf("\n\nBy using Binary search\nElement is found at index %d",mid);
+            return 0;
 		}
 		else if(arr[mid]>key){
 			e=mid-1;
@@ -50,7 +53,8 @@ void main(){
     for(i=0;i<n;i++){
         scanf("%d",&arr[i]);
     }
+    printf("Enter element to search : ");
     scanf("%d",&key);
     linsearch(arr,n,key);
-    printf("%d",binsearch(arr,n,key));
+    binsearch(arr,n,key);
 }
