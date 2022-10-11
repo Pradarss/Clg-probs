@@ -30,13 +30,6 @@ int main() {
     }
     if(count > ((a * b)/2)){
         printf("Matrix is a sparse matrix \n");
-        int size = 0;
-        for (int i = 0; i < a; i++){
-            for (int j = 0; j < b; j++){
-                if (sp[i][j] != 0){
-                    size++;
-                    // printf("%d",size);
-                }}}
         for(i=0;i<a;i++){
             for (j=0; j<b; j++) {
                 if(sp[i][j]!=0){
