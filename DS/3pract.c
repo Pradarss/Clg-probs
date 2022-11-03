@@ -1,231 +1,119 @@
-// C++ program for the above approach
-#include <iostream>
-using namespace std;
-
-// Node Class
-class Node {
-public:
-	int roll;
-	string Name;
-	string Dept;
-	int Marks;
-	Node* next;
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
+struct node {
+char *name;
+int age;
+int rollNo;
+struct node *next;
 };
-
-// Stores the head of the Linked List
-Node* head = new Node();
-
-// Check Function to check that if
-// Record Already Exist or Not
-bool check(int x)
-{
-	// Base Case
-	if (head == NULL)
-		return false;
-
-	Node* t = new Node;
-	t = head;
-
-	// Traverse the Linked List
-	while (t != NULL) {
-		if (t->roll == x)
-			return true;
-		t = t->next;
-	}
-
-	return false;
+struct node *head = NULL;
+struct node *current = NULL;
+//display the list
+void printList() {
+struct node *ptr = head;
+printf("\n[ ");
+//start from the beginning
+while(ptr != NULL) {
+printf("%s %d %d",ptr->name,ptr->age,ptr->rollNo);
+printf(" -> ");
+ptr = ptr->next;
 }
-
-// Function to insert the record
-void Insert_Record(int roll, string Name,
-				string Dept, int Marks)
-{
-	// if Record Already Exist
-	if (check(roll)) {
-		cout << "Student with this "
-			<< "record Already Exists\n";
-		return;
-	}
-
-	// Create new Node to Insert Record
-	Node* t = new Node();
-	t->roll = roll;
-	t->Name = Name;
-	t->Dept = Dept;
-	t->Marks = Marks;
-	t->next = NULL;
-
-	// Insert at Begin
-	if (head == NULL
-		|| (head->roll >= t->roll)) {
-		t->next = head;
-		head = t;
-	}
-
-	// Insert at middle or End
-	else {
-		Node* c = head;
-		while (c->next != NULL
-			&& c->next->roll < t->roll) {
-			c = c->next;
-		}
-		t->next = c->next;
-		c->next = t;
-	}
-
-	cout << "Record Inserted "
-		<< "Successfully\n";
+printf(" ]");
+// printf("\n");
 }
-
-// Function to search record for any
-// students Record with roll number
-void Search_Record(int roll)
-{
-	// if head is NULL
-	if (!head) {
-		cout << "No such Record "
-			<< "Available\n";
-		return;
-	}
-
-	// Otherwise
-	else {
-		Node* p = head;
-		while (p) {
-			if (p->roll == roll) {
-				cout << "Roll Number\t"
-					<< p->roll << endl;
-				cout << "Name\t\t"
-					<< p->Name << endl;
-				cout << "Department\t"
-					<< p->Dept << endl;
-				cout << "Marks\t\t"
-					<< p->Marks << endl;
-				return;
-			}
-			p = p->next;
-		}
-
-		if (p == NULL)
-			cout << "No such Record "
-				<< "Available\n";
-	}
+void insertFirst(char *name,int age,int roll) {
+struct node *link = (struct node*) malloc(sizeof(struct node));
+link->name=name;
+link->age = age;
+link->rollNo=roll;
+link->next = head;
+head = link;
 }
-
-// Function to delete record students
-// record with given roll number
-// if it exist
-int Delete_Record(int roll)
-{
-	Node* t = head;
-	Node* p = NULL;
-
-	// Deletion at Begin
-	if (t != NULL
-		&& t->roll == roll) {
-		head = t->next;
-		delete t;
-
-		cout << "Record Deleted "
-			<< "Successfully\n";
-		return 0;
-	}
-
-	// Deletion Other than Begin
-	while (t != NULL && t->roll != roll) {
-		p = t;
-		t = t->next;
-	}
-	if (t == NULL) {
-		cout << "Record does not Exist\n";
-		return -1;
-		p->next = t->next;
-
-		delete t;
-		cout << "Record Deleted "
-			<< "Successfully\n";
-
-		return 0;
-	}
+void InsertAtPos(int pos,char *name,int age,int rollNo){
+struct node *link1 = (struct node*) malloc(sizeof(struct node));
+link1->name=name;
+link1->age = age;
+link1->rollNo=rollNo;
+if(pos == 1){
+insertFirst(name,age,rollNo);
+return;
 }
-
-// Function to display the Student's
-// Record
-void Show_Record()
-{
-	Node* p = head;
-	if (p == NULL) {
-		cout << "No Record "
-			<< "Available\n";
-	}
-	else {
-		cout << "Index\tName\tCourse"
-			<< "\tMarks\n";
-
-		// Until p is not NULL
-		while (p != NULL) {
-			cout << p->roll << " \t"
-				<< p->Name << "\t"
-				<< p->Dept << "\t"
-				<< p->Marks << endl;
-			p = p->next;
-		}
-	}
+int count=1;
+struct node* temp=head;
+while(count < pos-1){
+temp=temp->next;
+count++;
 }
-
-// Driver code
-int main()
-{
-	head = NULL;
-	string Name, Course;
-	int Roll, Marks;
-
-	// Menu-driven program
-	while (true) {
-		cout << "\n\t\tWelcome to Student Record "
-				"Management System\n\n\tPress\n\t1 to "
-				"create a new Record\n\t2 to delete a "
-				"student record\n\t3 to Search a Student "
-				"Record\n\t4 to view all students "
-				"record\n\t5 to Exit\n";
-		cout << "\nEnter your Choice\n";
-		int Choice;
-
-		// Enter Choice
-		cin >> Choice;
-		if (Choice == 1) {
-			cout << "Enter Name of Student\n";
-			cin >> Name;
-			cout << "Enter Roll Number of Student\n";
-			cin >> Roll;
-			cout << "Enter Course of Student \n";
-			cin >> Course;
-			cout << "Enter Total Marks of Student\n";
-			cin >> Marks;
-			Insert_Record(Roll, Name, Course, Marks);
-		}
-		else if (Choice == 2) {
-			cout << "Enter Roll Number of Student whose "
-					"record is to be deleted\n";
-			cin >> Roll;
-			Delete_Record(Roll);
-		}
-		else if (Choice == 3) {
-			cout << "Enter Roll Number of Student whose "
-					"record you want to Search\n";
-			cin >> Roll;
-			Search_Record(Roll);
-		}
-		else if (Choice == 4) {
-			Show_Record();
-		}
-		else if (Choice == 5) {
-			exit(0);
-		}
-		else {
-			cout << "Invalid Choice "
-				<< "Try Again\n";
-		}
-	}
-	return 0;
+if(temp->next == NULL){
+link1->next = temp->next;
+temp->next = link1;
+return;
+}
+else{
+link1->next = temp->next;
+temp->next = link1;
+return;
+}
+}
+void deleteNode(int rollno){
+struct node* curr = head;
+struct node* prev= NULL;
+int count=1;
+while(curr !=NULL){
+if(curr->rollNo == rollno){
+break;
+}
+count++;
+prev=curr;
+curr=curr->next;
+}
+if(count == 1){
+struct node*temp=head;
+head=head->next;
+temp->next=NULL;
+free(temp);
+return;
+}
+prev->next=curr->next;
+curr->next=NULL;
+free(curr);
+}
+void reverse() {
+struct node* prev = NULL;
+struct node* current = head;
+struct node* next;
+while (current != NULL) {
+next = current->next;
+current->next = prev; 
+prev = current;
+current = next;
+}
+head = prev;
+}
+void main() {
+insertFirst("Heramb",12,24);
+insertFirst("Jagrit",20,42);
+insertFirst("Gaurav",19,18);
+InsertAtPos(4,"Ashu",16,2);
+insertFirst("Rishabh",19,10);
+// insertFirst(5,40);
+// insertFirst(6,56); 
+printf("Original List: "); 
+//print list
+printList();
+printf("\n");
+printf("Deleting Node of given Roll Number\n");
+int n;
+printf("Enter Roll No (24,42,18,2,10) to be deleted: ");
+scanf("%d",&n);
+deleteNode(n);
+printf("Node Deleted with roll No %d\n",n);
+printList();
+reverse();
+printf("\n");
+printf("reverse list : ");
+printf("\n");
+printList();
 }
