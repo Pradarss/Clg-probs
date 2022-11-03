@@ -91,21 +91,22 @@ int main()
 {
 	int ar[SIZE];
 	int i;
-	int num_of_ele;
+	int num_of_ele,n;
 
-	printf("We can push a total of 20 values\n");
+	printf("Enter the size of array\n");
+	scanf("%d",&n);
 
 	// Number of elements pushed in stack 1 is 10
 	// Number of elements pushed in stack 2 is 10
 
 	// loop to insert the elements into Stack1
-	for (i = 1; i <= 10; ++i)
+	for (i = 1; i <= n/2; ++i)
 	{
 		push1(i);
 		printf("Value Pushed in Stack 1 is %d\n", i);
 	}
 	// loop to insert the elements into Stack2.
-	for (i = 11; i <= 20; ++i)
+	for (i = 11; i <= n; ++i)
 	{
 		push2(i);
 		printf("Value Pushed in Stack 2 is %d\n", i);

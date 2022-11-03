@@ -37,7 +37,7 @@ void printLL()
     printf("\n");
     struct Node *temp = head;
     do{
-        printf("(%d , %s , %d)<=>", temp->age, temp->name, temp->salary);
+        printf("(%d , %s , %d)->", temp->age, temp->name, temp->salary);
         temp = temp->next;
     }while (temp->next != head);
     printf("\n");
@@ -52,13 +52,15 @@ void main()
     // node1->prev = NULL;
     head = node1;
     tail = node1;
+    insertAtHead(19, 100000, "Gaurav");
     insertAtHead(20, 5000000, "Heramb");
     insertAtHead(21, 100000, "Jagrit");
     insertAtHead(21, 250000, "Rishabh");
     printf("\n");
     printf("----------------------------Original Queue-----------------------------\n");
     printLL();
-    printf("press 1 for Inserting at Head \n press 2 for Deleting at Tail\n");
+    while(1){
+    printf("press 1 for Inserting at Head of circular LL\npress 2 for Deleting at Tail circular LL\n");
     int n;
     scanf("%d", &n);
     switch (n)
@@ -81,5 +83,6 @@ void main()
         printf("Deleted Node at the End");
         printLL();
         break;
+    }
     }
 }
