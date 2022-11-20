@@ -14,9 +14,9 @@ void main()
 {
     printf("\n************Queue Operations Using Linked List***********\n");
     int choice;
+    printf("\n1.insert an element\n2.Delete an element\n3.Display the queue\n4.Exit\n");
     while (choice != 4)
     {
-        printf("\n1.insert an element\n2.Delete an element\n3.Display the queue\n4.Exit\n");
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
         switch (choice)

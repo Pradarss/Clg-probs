@@ -1,98 +1,139 @@
-/* C program to implement 2 stacks using 1 array
-written by- Shivam Rana
-Date- 14/4/12 */
 #include <stdio.h>
-#include <stdlib.h>
-void main()
+#define SIZE 20
+int array[SIZE]; // declaration of array type variable.
+int top1 = -1;
+int top2 = SIZE;
+
+// Function to push data into stack1
+void push1(int data)
 {
-	int n, top1, top2, ch = 1, a, i, arr[100];
-	printf("Enter size of array you want to use\n");
-	scanf("%d", &n);
-	top1 = -1;
-	top2 = n;
-	while (ch != 0)
+	// checking the overflow condition
+	if (top1 < top2 - 1)
 	{
-		printf("What do u want to do?\n");
-		printf("1.Push element in stack 1\n");
-		printf("2.Push element in stack 2\n");
-		printf("3.Pop element from stack 1\n");
-		printf("4.Pop element from stack 2\n");
-		printf("5.Display stack 1\n");
-		printf("6.Display stack 2\n");
-		printf("0.EXIT\n");
-		scanf("%d", &ch);
-		switch (ch)
-		{
-		case 1:
-		{
-			printf("Enter the element\n");
-			scanf("%d", &a);
-			if (top1 != (top2 - 1))
-				arr[++top1] = a;
-			else
-				printf("Overflow\n");
-			break;
-		}
-		case 2:
-		{
-			printf("Enter the element\n");
-			scanf("%d", &a);
-			if (top2 != (top1 + 1))
-				arr[--top2] = a;
-			else
-				printf("Overflow\n");
-			break;
-		}
-		case 3:
-		{
-			if (top1 == -1)
-				printf("Stack1 is empty\n");
-			else
-			{
-				a = arr[top1--];
-				printf("%d\n", a);
-			}
-			break;
-		}
-		case 4:
-		{
-			if (top2 == n)
-				printf("Stack2 is empty\n");
-			else
-			{
-				a = arr[top2++];
-				printf("%d\n", a);
-			}
-			break;
-		}
-		case 5:
-		{
-			if (top1 == -1)
-				printf("Stack1 is empty\n");
-			else
-			{
-				printf("Stack1 is-->>\n");
-				for (i = 0; i <= top1; i++)
-					printf("%d ", arr[i]);
-				printf("\n");
-			}
-			break;
-		}
-		case 6:
-		{
-			if (top2 == n)
-				printf("Stack2 is empty\n");
-			else
-			{
-				printf("Stack2 is-->>\n");
-				for (i = (n - 1); i >= top2; i--)
-					printf("%d ", arr[i]);
-				printf("\n");
-			}
-			break;
-		}
-		case 0:
-			break;
-		}
+		top1++;
+		array[top1] = data;
 	}
+	else
+	{
+		printf("Stack is full");
+	}
+}
+// Function to push data into stack2
+void push2(int data)
+{
+	// checking overflow condition
+	if (top1 < top2 - 1)
+	{
+		top2--;
+		array[top2] = data;
+	}
+	else
+	{
+		printf("Stack is full..\n");
+	}
+}
+
+// Function to pop data from the Stack1
+void pop1()
+{
+	// Checking the underflow condition
+	if (top1 >= 0)
+	{
+		int popped_element = array[top1];
+		top1--;
+
+		printf("%d is being popped from Stack 1\n", popped_element);
+	}
+	else
+	{
+		printf("Stack is Empty \n");
+	}
+}
+// Function to remove the element from the Stack2
+void pop2()
+{
+	// Checking underflow condition
+	if (top2 < SIZE)
+	{
+		int popped_element = array[top2];
+		top2--;
+
+		printf("%d is being popped from Stack 2\n", popped_element);
+	}
+	else
+	{
+		printf("Stack is Empty!\n");
+	}
+}
+
+// Functions to Print the values of Stack1
+void display_stack1()
+{
+	int i;
+	for (i = top1; i >= 0; --i)
+	{
+		printf("%d ", array[i]);
+	}
+	printf("\n");
+}
+// Function to print the values of Stack2
+void display_stack2()
+{
+	int i;
+	for (i = top2; i < SIZE; ++i)
+	{
+		printf("%d ", array[i]);
+	}
+	printf("\n");
+}
+
+int main()
+{
+	int ar[SIZE];
+	int i;
+	int num_of_ele,n;
+
+	printf("Enter the size of array : ");
+	scanf("%d",&n);
+
+	// Number of elements pushed in stack 1 is 10
+	// Number of elements pushed in stack 2 is 10
+
+	// loop to insert the elements into Stack1
+	for (i = 1; i <= n/2; ++i)
+	{
+		push1(i);
+		printf("Value Pushed in Stack 1 is %d\n", i);
+	}
+	// loop to insert the elements into Stack2.
+	for (i = (n/2)+1; i <= n; ++i)
+	{
+		push2(i);
+		printf("Value Pushed in Stack 2 is %d\n", i);
+	}
+
+	// Print Both Stacks
+    printf("\n******Elements in stack 1******\n");
+	display_stack1();
+    printf("\n******Elements in stakc 2******\n");
+	display_stack2();
+
+	// Pushing on Stack Full
+	printf("Pushing Value in Stack 1 is %d\n", 11);
+	push1(11);
+    printf("Now stack 1 is \n");
+    display_stack1();
+
+	// Popping All Elements from Stack 1
+	num_of_ele = top1 + 1;
+	while (num_of_ele)
+	{
+		pop1();
+		--num_of_ele;
+	}
+
+	// Trying to Pop the element From the Empty Stack
+	pop1();
+
+	return 0;
 }

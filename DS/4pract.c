@@ -57,30 +57,31 @@ void main()
 	printf("\n");
 	printf("----------------------------Original Queue-----------------------------\n");
 	printLL();
-	while(1){
-	printf("press 1 for Inserting at Head doubly LL\npress 2 for Deleting at Tail doubly LL\n");
-	int n;
-	scanf("%d", &n);
-	switch (n)
+	while (1)
 	{
-	case 1:
-		printf("Enter name of the employee\n");
-		char name[30];
-		scanf("%s", name);
-		printf("Enter age of the employee\n");
-		int age;
-		scanf("%d", &age);
-		printf("Enter Salary of the employee\n");
-		int salary;
-		scanf("%d", &salary);
-		insertAtHead(age, salary, name);
-		printLL();
-		break;
-	case 2:
-		deleteAtEnd();
-		printf("Deleted Node at the End");
-		printLL();
-		break;
-	}
+		printf("press 1 for Inserting at Head doubly LL\npress 2 for Deleting at Tail doubly LL\n");
+		int n;
+		scanf("%d", &n);
+		switch (n)
+		{
+		case 1:
+			printf("Enter name of the employee\n");
+			char name[30];
+			scanf("%s", name);
+			printf("Enter age of the employee\n");
+			int age;
+			scanf("%d", &age);
+			printf("Enter Salary of the employee\n");
+			int salary;
+			scanf("%d", &salary);
+			insertAtHead(age, salary, name);
+			printLL();
+			break;
+		case 2:
+			deleteAtEnd();
+			printf("Deleted Node at the End");
+			printLL();
+			break;
+		}
 	}
 }

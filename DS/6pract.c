@@ -106,7 +106,7 @@ int main()
 		printf("Value Pushed in Stack 1 is %d\n", i);
 	}
 	// loop to insert the elements into Stack2.
-	for (i = 11; i <= n; ++i)
+	for (i = (n/2)+1; i <= n; ++i)
 	{
 		push2(i);
 		printf("Value Pushed in Stack 2 is %d\n", i);
