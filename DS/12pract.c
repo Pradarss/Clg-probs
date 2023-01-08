@@ -1,83 +1,40 @@
-#include <stdio.h>
-#include <stdlib.h>
-typedef struct node{
-    int info;
-    struct node *left;
-    struct node *right;
-} node;
-node *createtree(){
+#include<stdio.h>
+#include<stdlib.h>
 
-    struct node *new_node;
+// Iterate through the list of elements.
+// For each element, compare it with the elements on its left.
+// If the element is smaller than any of the elements on its left, shift those elements one position to the right and insert the element in its correct position.
+// Repeat this process until the list is sorted.
+void insertion_sort(int arr[], int n) {
+  for (int i = 1; i < n; i++) {
+    int key = arr[i];
+    int j = i - 1;
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = key;
+  }
+}
 
-    int x;
-    printf("Enter the data (-1 for no node) :\n");
-    scanf("%d", &x);
-    if (x == -1){
-        return NULL;
-    }
-    new_node = (struct node *)malloc(sizeof(struct node));
-    new_node->info = x;
-    printf("Enter the left child of %d\n", x);
-    new_node->left = createtree();
-    printf("Enter the right child of %d\n", x);
-    new_node->right = createtree();
-    return new_node;
+void display(int arr[], int n){
+  for (int i = 0; i < n; i++) {
+    printf("%d  ", arr[i]);
+  }
+  printf("\n\n");
 }
-void preorder(node *t){
-    if (t != NULL)
-    {
-        printf("%d\t", t->info);
-        preorder(t->left);
-        preorder(t->right);
-    }
-}
-void inorder(node *t){
-    if (t != NULL)
-    {
-        inorder(t->left);
-        printf("%d\t", t->info);
-        inorder(t->right);
-    }
-}
-void postorder(node *t){
-    if (t != NULL)
-    {
-        postorder(t->left);
-        postorder(t->right);
-        printf("%d\t", t->info);
-    }
-}
-int main(){
-    int ch;
-    node *root;
-    root = createtree();
-    while (1)
-    {
-        printf("\n\tMENU\n");
-        printf("1.Preorder traversal\n");
-        printf("2.Inorder traversal\n");
-        printf("3.Postorder traversal\n");
-        printf("4. Exit\n");
-        scanf("%d", &ch);
-        switch (ch)
-        {
-        case 1:
-            printf("The Preorder traversal is:\n");
-            preorder(root);
-            break;
-        case 2:
-            printf("The Inorder traversal is:\n");
-            inorder(root);
-            break;
-        case 3:
-            printf("The Postorder traversal is:\n");
-            postorder(root);
-            break;
-        case 4:
-            exit(0);
-        default:
-            printf("Wrong choice\n");
-            break;
-        }
-    }
+
+
+int main() {
+  int arr[] = {5, 1, 4, 2, 8};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  printf("Array before sorting:\n");
+  display(arr, n);
+
+  insertion_sort(arr, n);
+  printf("Array after insertion sort: \n");
+  display(arr, n);
+
+  return 0;
 }
