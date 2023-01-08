@@ -34,16 +34,16 @@ void preorder(node *t){
 void inorder(node *t){
     if (t != NULL)
     {
-        preorder(t->left);
+        inorder(t->left);
         printf("%d\t", t->info);
-        preorder(t->right);
+        inorder(t->right);
     }
 }
 void postorder(node *t){
     if (t != NULL)
     {
-        preorder(t->left);
-        preorder(t->right);
+        postorder(t->left);
+        postorder(t->right);
         printf("%d\t", t->info);
     }
 }
@@ -53,7 +53,7 @@ int main(){
     root = createtree();
     while (1)
     {
-        printf("menu\n");
+        printf("\n\tMENU\n");
         printf("1.Preorder traversal\n");
         printf("2.Inorder traversal\n");
         printf("3.Postorder traversal\n");

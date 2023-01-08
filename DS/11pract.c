@@ -6,7 +6,6 @@
 // If the element is greater than the next element, swap them.
 // Repeat this process until the list is sorted.
 void bubble_sort(int arr[], int n) {
-    int arr[] = {5, 1, 4, 2, 8};
   for (int i = 0; i < n - 1; i++) {
     for (int j = 0; j < n - i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
@@ -16,7 +15,6 @@ void bubble_sort(int arr[], int n) {
       }
     }
   }
-  display(arr, n);
 }
 
 // Iterate through the list of elements.
@@ -24,7 +22,6 @@ void bubble_sort(int arr[], int n) {
 // If the element is smaller than any of the elements on its left, shift those elements one position to the right and insert the element in its correct position.
 // Repeat this process until the list is sorted.
 void insertion_sort(int arr[], int n) {
-    int arr[] = {5, 1, 4, 2, 8};
   for (int i = 1; i < n; i++) {
     int key = arr[i];
     int j = i - 1;
@@ -34,7 +31,6 @@ void insertion_sort(int arr[], int n) {
     }
     arr[j + 1] = key;
   }
-  display(arr, n);
 }
 
 // Select a pivot element from the list.
@@ -42,7 +38,6 @@ void insertion_sort(int arr[], int n) {
 // Recursively sort the two sublists.
 // Combine the sorted sublists and the pivot element to get the sorted list.
 void quick_sort(int arr[], int low, int high) {
-    int arr[] = {5, 1, 4, 2, 8};
   if (low < high) {
     int pivot = low;
     int i = low;
@@ -66,7 +61,6 @@ void quick_sort(int arr[], int low, int high) {
     quick_sort(arr, low, j - 1);
     quick_sort(arr, j + 1, high);
   }
-  display(arr, n);
 }
 
 // Iterate through the list of elements.
@@ -74,7 +68,6 @@ void quick_sort(int arr[], int low, int high) {
 // Swap the element with the minimum element.
 // Repeat this process until the list is sorted.
 void selection_sort(int arr[], int n) {
-    int arr[] = {5, 1, 4, 2, 8};
   for (int i = 0; i < n - 1; i++) {
     int min_index = i;
     for (int j = i + 1; j < n; j++) {
@@ -86,14 +79,12 @@ void selection_sort(int arr[], int n) {
     arr[i] = arr[min_index];
     arr[min_index] = temp;
   }
-  display(arr, n);
 }
 
 // If the list has more than one element, divide the list into two sublists.
 // Recursively sort the two sublists.
 // Merge the two sorted sublists to get the sorted list.
 void merge(int arr[], int l, int m, int r) {
-    int arr[] = {5, 1, 4, 2, 8};
   int i, j, k;
   int n1 = m - l + 1;
   int n2 = r - m;
@@ -129,14 +120,12 @@ void merge(int arr[], int l, int m, int r) {
   }
 }
 void merge_sort(int arr[], int l, int r) {
-    int arr[] = {5, 1, 4, 2, 8};
   if (l < r) {
     int m = l + (r - l) / 2;
     merge_sort(arr, l, m);
     merge_sort(arr, m + 1, r);
     merge(arr, l, m, r);
   }
-  display(arr, n);
 }
 
 // Build a heap from the list of elements.
@@ -144,7 +133,6 @@ void merge_sort(int arr[], int l, int r) {
 // Discard the last element and heapify the remaining list.
 // Repeat this process until the list is sorted.
 void heapify(int arr[], int n, int i) {
-    int arr[] = {5, 1, 4, 2, 8};
   int largest = i;
   int l = 2 * i + 1;
   int r = 2 * i + 2;
@@ -162,7 +150,6 @@ void heapify(int arr[], int n, int i) {
   }
 }
 void heap_sort(int arr[], int n) {
-    int arr[] = {5, 1, 4, 2, 8};
   for (int i = n / 2 - 1; i >= 0; i--) {
     heapify(arr, n, i);
   }
