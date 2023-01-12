@@ -68,10 +68,10 @@ int main() {
     insert(ht, 2, 200);
     insert(ht, 3, 300);
 
-    printf("%d\n", search(ht, 1));
-    printf("%d\n", search(ht, 2));
-    printf("%d\n", search(ht, 3));
-    printf("%d\n", search(ht, 4));
+    printf("The value at 1 is %d\n", search(ht, 1));
+    printf("The value at 2 is %d\n", search(ht, 2));
+    printf("The value at 3 is %d\n", search(ht, 3));
+    printf("The value at 4 is %d\n", search(ht, 4));
 
     return 0;
 }
