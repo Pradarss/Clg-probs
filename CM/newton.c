@@ -11,15 +11,14 @@ float df(float x){
 
 int main(){
     int itr,maxitr;
-    float h,x0,x1,aerr;
+    float x0,x1,aerr;
 
     printf("Enter x0, allowed error,maximum iterations\n");
     scanf("%f %f %d",&x0,&aerr,&maxitr);
     for(itr=1;itr<=maxitr;itr++){
-        h=f(x0)/df(x0);
-        x1=x0-h;
+        x1=x0-(f(x0)/df(x0));
         printf("Interaction no. %3d, x = %9.6f\n",itr,x1);
-        if(fabs(h)<aerr){
+        if(fabs(x0-x1)<aerr){
             printf("After %3d iterations, root = %8.6f\n",itr,x1);
             return 0;
         }
