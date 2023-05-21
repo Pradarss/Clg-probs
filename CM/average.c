@@ -11,4 +11,4 @@ int main(){
     printf("Sum of 10 numbers:\n 1+2+3+4+5+6+7+8+9+10 = %d\n\nAverage of 10 numbers:\n (1+2+3+4+5+6+7+8+9+10)/10 = %.2f\n", sum, avg);
 
     return 0;
-}
+} 
