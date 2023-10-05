@@ -11,11 +11,11 @@ class SortNames {
     }
 
     void inputNames() {
-        name[0] = "Shubham";
-        name[1] = "Kartik";
-        name[2] = "Aman";
-        name[3] = "Lana";
-        name[4] = "Bishnoi";
+        name[0] = "Shubh";
+        name[1] = "Komal";
+        name[2] = "Adarsh";
+        name[3] = "Lalit";
+        name[4] = "Bhaskar";
     }
 
     void bubbleSort() {
