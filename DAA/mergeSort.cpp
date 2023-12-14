@@ -103,10 +103,10 @@ int main()
     clock_t start_time = clock();
 	mergeSort(arr, 0, n - 1);
     clock_t end_time = clock();
-	cout << "\nSorted array is \n";
+	cout << "Sorted array is \n";
 	printArray(arr, n);
     double time_taken = double(end_time - start_time) / CLOCKS_PER_SEC;
-    cout << "\nTime taken by merge sort: " << time_taken << endl;
+    cout << "Time taken by merge sort: " << time_taken << endl;
 	return 0;
 }
 
