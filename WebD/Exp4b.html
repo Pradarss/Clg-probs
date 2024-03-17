@@ -3,46 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styled Frame with Hyperlink</title>
+    <title>Map Frame with Links</title>
     <style>
-        body{
-            padding: 10vw 50vh;
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 3vw 20vh; 
+            padding: 0; 
+            background-color: #f4f4f4;
         }
-        .frame {
-            display: inline-block;
-            padding: 20px;
-            border: 2px solid #333;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-family: Arial, sans-serif;
-            color: #333;
-            text-align: center;
-            height: 50vh;
-            width: 50vw;
+        iframe {
+            width: 80vw; 
+            height: 80vh; 
+            border: none; 
+            margin-bottom: 20px; 
+            border: 2px solid black;
         }
-        .link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+        p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center ;
+            font-size: 20px; 
+            margin-top: 20px; 
+            text-align: center; 
         }
-        .link:hover {
-            background-color: #555;
+        i {
+            font-style: italic; 
+        }
+        a {
+            text-decoration: none; 
+            color: black; 
+        }
+        a:hover {
+            text-decoration: underline; 
         }
     </style>
 </head>
 <body>
-
-    <div class="frame">
-        <i></i>
-        <h2>Welcome to My Website</h2>
-        <p>This is a styled frame with content. You can add any content here to showcase your message or information.</p>
-        <a href="#" class="link">Learn More</a>
-    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.102089713228!2d-122.0839484850908!3d37.386051879802096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba98a07216cb%3A0x8a8a51b6b5c60183!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1630177385417!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+    <p>
+        <u>For more maps - ></u>
+        <i><a href="https://www.openstreetmap.org">OpenStreetMap</a></i><br>
+        <i><a href="https://www.maps.com">Maps.com</a></i><br>
+        <i><a href="https://www.nationalgeographic.com/maps">National Geographic Maps</a></i><br>
+    </p>
 </body>
 </html>
