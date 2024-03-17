@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Dictionary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        h1{
+            text-decoration: underline;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .search{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        input,button{
+            font-size: 20px;
+            height: 5vh;
+        }
+
+        .dictionary {
+            margin: 50px;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            list-style-type: none;
+            /* padding-left: 0; */
+        }
+        .dictionary-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .word {
+            font-weight: bold;
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .definition {
+            color: #555;
+            font-size: 16px;
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dictionary</h1>
+    <div class="search">
+        <input type="text" placeholder="Enter a word to search">
+        <button>Search</button>
+    </div>
+
+    <ul class="dictionary">
+        <li class="dictionary-item">
+            <strong class="word">Sonder</strong>:
+            <ul>
+                <li class="definition">The realization that each passerby has a life as vivid and complex as your own.</li>
+            </ul>
+        </li>
+        <li class="dictionary-item">
+            <strong class="word">Epiphany</strong>:
+            <ul>
+                <li class="definition">A sudden and profound realization or understanding, often triggered by a mundane or everyday experience.</li>
+            </ul>
+        </li>
+        <li class="dictionary-item">
+            <strong class="word">Serendipity</strong>:
+            <ul>
+                <li class="definition">The occurrence of fortunate events by chance or accident, leading to unexpected and pleasant discoveries.</li>
+            </ul>
+        </li>
+
+        <li class="dictionary-item">
+            <strong class="word">Ephemeral</strong>:
+            <ul>
+                <li class="definition">Lasting for only a short period of time; transient or fleeting.</li>
+            </ul>
+        </li>
+
+        <li class="dictionary-item">
+            <strong class="word">Saudade</strong>:
+            <ul>
+                <li class="definition">A deep emotional state of longing or nostalgia for something or someone absent, often accompanied by a sense of incompleteness or melancholy.</li>
+            </ul>
+        </li>
+
+        <li class="dictionary-item">
+            <strong class="word">Panacea</strong>:
+            <ul>
+                <li class="definition">A remedy or solution that is believed to cure all ailments or problems.</li>
+            </ul>
+        </li>
+
+        <li class="dictionary-item">
+            <strong class="word">Quixotic</strong>:
+            <ul>
+                <li class="definition">Characterized by lofty, romantic, or idealistic pursuits or ambitions that are often impractical or unrealistic.</li>
+            </ul>
+        </li>
+
+        <li class="dictionary-item">
+            <strong class="word">Eunoia</strong>:
+            <ul>
+                <li class="definition">Beautiful thinking; a state of well-mind and good spirit.</li>
+            </ul>
+        </li>
+
+        <li class="dictionary-item">
+            <strong class="word">Petrichor</strong>:
+            <ul>
+                <li class="definition">The pleasant, earthy smell that follows a rain shower, particularly after a dry spell.</li>
+            </ul>
+        </li>
+
+        <li class="dictionary-item">
+            <strong class="word">Halcyon</strong>:
+            <ul>
+                <li class="definition">Denoting a period of peace, tranquility, and prosperity; often associated with nostalgic or idyllic memories.</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

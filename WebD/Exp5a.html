@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        nav {
+            background-color: #666;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .content h2 {
+            color: #333;
+        }
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Static Web Page</h1>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#" onclick="showAlert('Home')">Home</a></li>
+                <li><a href="#" onclick="showAlert('About')">About</a></li>
+                <li><a href="#" onclick="showAlert('Services')">Services</a></li>
+                <li><a href="#" onclick="showAlert('Contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container content">
+        <h2>Welcome to our website</h2>
+        <p>This is a static web page created using internal CSS. It demonstrates the use of HTML and CSS to design a simple web page layout.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut nisl sed quam aliquam varius. Nulla aliquam vestibulum libero, vitae scelerisque est tincidunt eget. Morbi eget lorem nisi. Vestibulum congue mi ligula, id commodo libero ultricies non. In ultrices ex ac leo fermentum, eget auctor risus suscipit.</p>
+    </div>
+    <footer>
+        <div class="container" id="currentDate"></div>
+    </footer>
+    <script>
+        const currentDateElement = document.getElementById('currentDate');
+        const currentDate = new Date();
+        currentDateElement.textContent = '© 2024 Static Web Page | Today is: ' + currentDate.toDateString();
+        function showAlert(page) {
+            alert('You clicked ' + page);
+        }
+    </script>
+</body>
+</html>

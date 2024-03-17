@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Frame with Hyperlink</title>
+    <style>
+        body{
+            padding: 10vw 50vh;
+        }
+        .frame {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            height: 50vh;
+            width: 50vw;
+        }
+        .link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .link:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="frame">
+        <i></i>
+        <h2>Welcome to My Website</h2>
+        <p>This is a styled frame with content. You can add any content here to showcase your message or information.</p>
+        <a href="#" class="link">Learn More</a>
+    </div>
+</body>
+</html>
