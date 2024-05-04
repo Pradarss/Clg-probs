@@ -72,7 +72,7 @@ function App() {
                 required 
                 className="textarea"
             ></textarea>
-            <button type="submit" className="button">Add Post</button>
+            <button type="submit" className="button">Add Blog</button>
         </form>
         <ul className="post-list">
             {posts.map(post => (

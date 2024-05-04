@@ -107,7 +107,7 @@ li p {
     padding: 10px;
     text-align: center;
     bottom: 0;
-    position: absolute;
+    /* position: absolute; */
     width: 100vw;
 }
 
@@ -115,3 +115,9 @@ li p {
     margin: 0;
 }
 
+.post-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  

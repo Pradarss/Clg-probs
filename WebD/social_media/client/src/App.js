@@ -72,11 +72,17 @@ function App() {
             className="textarea-field"
             required
         ></textarea>
+         <input
+            type="file"
+            accept="image/*" 
+            className="image-input"
+          />
         <button type="submit" className="submit-button">Add Post</button>
     </form>
     <ul className="post-list">
         {posts.map(post => (
             <li key={post._id} className="post-item">
+              <img className='post-image' src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D" alt="Image Description" />
                 <h2 className="post-title">{post.title}</h2>
                 <p className="post-content">{post.content}</p>
             </li>

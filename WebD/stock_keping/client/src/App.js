@@ -78,6 +78,7 @@ function App() {
     </header>
         <div className="container">
             <h1 className="heading">Bookstore Library</h1>
+            <h2>User Interface</h2>
             <div className="input-container">
                 <input 
                     type="text" 
@@ -97,6 +98,7 @@ function App() {
             ) : (
                 <p className="no-book">No book found.</p>
             )}
+            <h2>Admin Interface</h2>
             <h2 className="sub-heading">Add New Book</h2>
             <div className="input-container">
                 <input 

@@ -60,6 +60,10 @@
     align-items: center;
 }
 
+.input{
+    margin: 10px;
+}
+
 .logo {
     margin: 0;
 }
